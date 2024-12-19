@@ -50,12 +50,12 @@ app.post("/functions/romanToArabic", (req, res) => {
     const output = romanToArabic(input.toUpperCase());
     res.send({ output });
   } catch (err) {
-    res.status(500).send({ error: "An error occurred while processing your request." });
+    res.status(500).send({ error: err.message });
   }
 });
 
 //GET - API DOCUMENTATION 
-app.get("functions/romanToArabic", (req, res) => {
+app.get("/functions/romanToArabic", (req, res) => {
   const docs = {
     name: "romanToArabic",
     description: "Converts a Roman numeral to an Arabic numeral.",
